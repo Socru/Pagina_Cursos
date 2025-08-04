@@ -1,0 +1,389 @@
+/* Variables de color para facilitar cambios */
+:root {
+  --color-primario: #0066cc;
+  --color-primario-hover: #0052a3;
+  --color-texto: #333;
+  --color-texto-secundario: #555;
+  --color-fondo: #f9f9f9;
+  --color-footer-bg: #222222;
+  --color-footer-texto: #eee;
+}
+
+/* ROOT: que el layout ocupe toda la pantalla */
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Reset básico */
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+/* Enlaces */
+a {
+  color: var(--color-primario);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover, a:focus {
+  color: var(--color-primario-hover);
+  text-decoration: underline;
+  outline: none;
+}
+
+/* Contenedor general */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  width: 100%;
+}
+
+/* NAVBAR */
+header.navbar {
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+.logo-contenedor {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  user-select: none;
+}
+
+.logo-img {
+  height: 48px;
+  width: 48px;
+  object-fit: contain;
+}
+
+.logo-contenedor h1 {
+  font-size: 1.8rem;
+  color: var(--color-texto);
+  font-weight: 700;
+}
+
+.nombreEmpresa {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  color: var(--color-texto, #333);
+  font-weight: 600;
+  margin: 0; /* Elimina margen lateral innecesario */
+  padding-right: 1rem;
+}
+
+
+/* Menu */
+.menu {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: flex-end;
+  padding-top: 1rem;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 1.25rem;
+  padding-left: 0;
+  margin: 0;
+}
+
+.menu li a {
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  color: var(--color-texto);
+  transition: background-color 0.3s, color 0.3s;
+  display: block;
+}
+
+.menu li a:hover,
+.menu li a.activo {
+  background-color: var(--color-primario);
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 102, 204, 0.5);
+}
+
+/* Botón hamburguesa */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-texto);
+  transition: color 0.3s;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus {
+  color: var(--color-primario);
+  outline: none;
+}
+
+/* QUIÉNES SOMOS */
+.quien-soy {
+  background-color: #fff;
+  padding: 4rem 1rem;
+}
+
+.quien-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.quien-soy .texto {
+  flex: 1 1 320px;
+  max-width: 600px;
+}
+
+.quien-soy .texto h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: var(--color-texto);
+}
+
+.quien-soy .texto p {
+  font-size: 1.15rem;
+  color: var(--color-texto-secundario);
+  line-height: 1.5;
+}
+
+.quien-soy .imagen {
+  flex: 1 1 320px;
+  text-align: center;
+}
+
+.quien-soy .imagen img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* MEDIOS */
+.medios {
+  background-color: var(--color-fondo-secundario);
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.medios h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.iconos a {
+  margin: 0 0.7rem;
+  font-size: 2.2rem;
+  color: #666;
+  transition: color 0.3s;
+}
+
+.iconos a:hover,
+.iconos a:focus {
+  color: var(--color-primario);
+  outline: none;
+}
+
+.podcast iframe {
+  margin-top: 1.5rem;
+  border-radius: 14px;
+  max-width: 420px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border: none;
+}
+
+/* BLOG */
+.blog {
+  background-color: #fff;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.blog h2 {
+  font-size: 2.4rem;
+  margin-bottom: 2.5rem;
+  font-weight: 600;
+}
+
+.blog .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.blog .post {
+  background-color: #f7f7f7;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog .post:hover,
+.blog .post:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.blog .post h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-texto);
+}
+
+.blog .post p {
+  font-size: 1.1rem;
+  color: var(--color-texto-secundario);
+  margin-bottom: 1.2rem;
+}
+
+/* FOOTER */
+footer {
+  background-color:#222;
+  color: var(--color-footer-texto);
+  padding: 3rem 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  user-select: none;
+}
+
+footer a {
+  color: var(--color-footer-texto);
+  margin: 0 0.6rem;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+footer a:hover,
+footer a:focus {
+  color: white;
+  outline: none;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  /* Menú colapsado (inicialmente oculto) */
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    width: 100%;
+    padding: 1rem;
+    border-top: 1px solid #ddd;
+    z-index: 999;
+  }
+
+  /* Menú abierto al hacer toggle */
+  .menu.menu-abierto {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Lista de navegación vertical */
+  .menu ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    width: 100%;
+  }
+
+  .menu ul li a {
+    text-align: center;
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+  }
+
+  .menu ul li a:hover {
+    background-color: var(--color-primario);
+    color: white;
+  }
+
+  /* Botón hamburguesa visible */
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-texto);
+  }
+
+  .menu-toggle:hover {
+    color: var(--color-primario);
+  }
+
+  /* Logo responsivo */
+  .logo {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  /* Header layout adaptado */
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  /* Sección "Quién soy" responsiva */
+  .quien-flex {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .quien-soy .texto,
+  .quien-soy .imagen {
+    max-width: 100%;
+  }
+
+  /* Títulos de secciones ajustados */
+  .medios h2,
+  .blog h2 {
+    font-size: 1.8rem;
+  }
+}
