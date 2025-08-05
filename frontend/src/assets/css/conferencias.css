@@ -152,17 +152,28 @@ ul {
 /* Galería */
 .galeria {
   display: flex;
-  gap: 1rem;
-  justify-content: center;
   flex-wrap: wrap;
-  margin-top: 1.5rem;
+  justify-content: center;
+  align-items: flex-start; /* Opcional: cambia a 'center' si quieres alinear verticalmente también */
+  gap: 1.5rem;
+  margin: 2rem auto;
+  max-width: 1000px; /* Centrado y ancho máximo opcional */
+  padding: 0 1rem; /* Espaciado horizontal en móviles */
 }
 
 .galeria img {
-  width: 100%;
   max-width: 280px;
+  width: 100%;
   border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
+
+.galeria img:hover {
+  transform: scale(1.03);
+}
+
 
 /* Testimonios */
 .testimonios blockquote {
@@ -289,4 +300,76 @@ details summary {
   .galeria {
     justify-content: center;
   }
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-contenido {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-contenido h3 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.modal-contenido form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+  align-items: center; /* centrado horizontal del contenido, incluidos los botones */
+}
+
+.modal-contenido input,
+.modal-contenido textarea,
+.modal-contenido select {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modal-contenido button[type="submit"] {
+  padding: 0.75rem 1.25rem;
+  background-color: var(--color-primario);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  align-self: center; /* centrado del botón */
+}
+
+.modal-contenido button[type="submit"]:hover {
+  background-color: var(--color-primario-hover);
+}
+
+.cerrar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  color: #555;
+  cursor: pointer;
 }
