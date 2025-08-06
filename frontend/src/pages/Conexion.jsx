@@ -1,15 +1,14 @@
-// src/pages/Coaching.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../assets/css/conferencias.css'; // O usa coaching.css si prefieres estilos separados
+import '../assets/css/conferencias.css'; // Usa mismos estilos
 
-export default function Coaching() {
+export default function Conexion() {
+  const [modalActivo, setModalActivo] = useState(null);
+
   const toggleMenu = () => {
     const menu = document.getElementById('menu');
     menu.classList.toggle('menu-abierto');
   };
-
-  const [modalActivo, setModalActivo] = useState(null);
 
   const abrirModal = (tipo) => setModalActivo(tipo);
   const cerrarModal = () => setModalActivo(null);
@@ -22,17 +21,15 @@ export default function Coaching() {
             <img src="/media/logo.jpg" alt="Logo Empresa" className="logo-img" />
             <h1 className="nombre_empresa">Empresa</h1>
           </Link>
-
-          <button className="menu-toggle" aria-label="Menú" onClick={toggleMenu}>
+          <button className="menu-toggle" onClick={toggleMenu}>
             <i className="fas fa-bars"></i>
           </button>
-
           <nav className="menu" id="menu">
             <ul>
               <li><Link to="/">Inicio</Link></li>
               <li><Link to="/conferencias">Conferencias</Link></li>
-              <li><Link to="/conexion">Conexión Espiritual</Link></li>
-              <li><Link to="/coaching" className="activo">Coaching Somático</Link></li>
+              <li><Link to="/conexion" className="activo">Conexión Espiritual</Link></li>
+              <li><Link to="/coaching">Coaching Somático</Link></li>
               <li><Link to="/cursos">Cursos Online</Link></li>
               <li><Link to="/contacto">Contacto</Link></li>
             </ul>
@@ -40,82 +37,80 @@ export default function Coaching() {
         </div>
       </header>
 
-      <main className="contenido coaching" style={{ backgroundColor: '#fff' }}>
+      <main className="contenido" style={{ backgroundColor: '#fff' }}>
         <section className="intro">
-          <h2>Coaching Somático de Duelo</h2>
+          <h2>Conexión Espiritual</h2>
           <p>
-            Acompañamiento especializado que integra el cuerpo, la emoción y la conciencia para transitar procesos de duelo de manera compasiva y profunda.
+            Elige tu sesión, realiza el pago y agenda automáticamente. Pronto estará habilitado el flujo completo.
           </p>
         </section>
 
-        <section className="coaching-programa">
-          <h3>Programa 1:1 para Mujeres</h3>
-          <p>Un espacio íntimo de transformación personal.</p>
-          <button className="boton" onClick={() => abrirModal('uno')}>Aplicar</button>
-        </section>
+        <section className="programas-coaching">
+          <div className="card">
+            <h3>Lectura de Oráculo</h3>
+            <p>Sesión guiada para recibir claridad espiritual. Duración: 45 min.</p>
+            <button className="boton" onClick={() => abrirModal('oraculo')}>Agendar</button>
+          </div>
 
-        <section className="coaching-programa">
-          <h3>Programa Grupal para Mujeres</h3>
-          <p>Proceso colectivo de sanación y sostén en comunidad.</p>
-          <button className="boton" onClick={() => abrirModal('grupal')}>Aplicar</button>
-        </section>
+          <div className="card">
+            <h3>Canalización Espiritual</h3>
+            <p>Conexión con guías espirituales. Duración: 60 min.</p>
+            <button className="boton" onClick={() => abrirModal('canalizacion')}>Agendar</button>
+          </div>
 
-        <section className="coaching-programa">
-          <h3>Programa para Corporativos</h3>
-          <p>Intervenciones para empresas con enfoque emocional.</p>
-          <button className="boton" onClick={() => abrirModal('corporativo')}>Aplicar</button>
+          <div className="card">
+            <h3>Sanación Energética</h3>
+            <p>Equilibrio de chakras y limpieza emocional. Duración: 60 min.</p>
+            <button className="boton" onClick={() => abrirModal('sanacion')}>Agendar</button>
+          </div>
         </section>
       </main>
 
-      {/* Modales */}
-      {modalActivo === 'uno' && (
+      {/* MODAL — Misma estructura que Coaching.jsx */}
+      {modalActivo && (
         <div className="modal">
           <div className="modal-contenido">
             <span className="cerrar" onClick={cerrarModal}>&times;</span>
-            <h3>Aplicación — Programa 1:1</h3>
-            <form action="https://formspree.io/f/tu-formulario-id-1" method="POST">
-              <input type="text" name="nombre" placeholder="Nombre completo" required />
-              <input type="email" name="email" placeholder="Correo electrónico" required />
-              <input type="text" name="pais" placeholder="País de residencia" />
-              <textarea name="mensaje" placeholder="¿Por qué te interesa este proceso?" required />
-              <button type="submit">Enviar aplicación</button>
-            </form>
-          </div>
-        </div>
-      )}
+            <h3>
+              {modalActivo === 'oraculo' && 'Agendar — Lectura de Oráculo'}
+              {modalActivo === 'canalizacion' && 'Agendar — Canalización Espiritual'}
+              {modalActivo === 'sanacion' && 'Agendar — Sanación Energética'}
+            </h3>
 
-      {modalActivo === 'grupal' && (
-        <div className="modal">
-          <div className="modal-contenido">
-            <span className="cerrar" onClick={cerrarModal}>&times;</span>
-            <h3>Aplicación — Programa Grupal</h3>
-            <form action="https://formspree.io/f/tu-formulario-id-2" method="POST">
-              <input type="text" name="nombre" placeholder="Nombre completo" required />
-              <input type="email" name="email" placeholder="Correo electrónico" required />
-              <textarea name="expectativas" placeholder="¿Qué esperas del grupo?" required />
-              <select name="experiencia">
-                <option value="">¿Tienes experiencia grupal?</option>
-                <option value="sí">Sí</option>
-                <option value="no">No</option>
+            <form>
+              <input type="text" name="nombre" placeholder="Ej. María Pérez" required />
+              <input type="email" name="email" placeholder="Ej. mariaperez@email.com" required />
+              <input type="text" name="pais" placeholder="Ej. México" />
+
+              <select name="horario" required>
+                <option value="">Selecciona un horario</option>
+                <option value="mañana">Mañana (9:00 - 12:00)</option>
+                <option value="tarde">Tarde (13:00 - 17:00)</option>
+                <option value="noche">Noche (18:00 - 21:00)</option>
               </select>
-              <button type="submit">Enviar aplicación</button>
-            </form>
-          </div>
-        </div>
-      )}
 
-      {modalActivo === 'corporativo' && (
-        <div className="modal">
-          <div className="modal-contenido">
-            <span className="cerrar" onClick={cerrarModal}>&times;</span>
-            <h3>Aplicación — Corporativos</h3>
-            <form action="https://formspree.io/f/tu-formulario-id-3" method="POST">
-              <input type="text" name="empresa" placeholder="Nombre de la empresa" required />
-              <input type="text" name="contacto" placeholder="Nombre de contacto" required />
-              <input type="email" name="email" placeholder="Correo electrónico" required />
-              <textarea name="objetivos" placeholder="¿Qué objetivos tienen con este programa?" required />
-              <button type="submit">Enviar aplicación</button>
+              <textarea
+                name="intencion"
+                placeholder="¿Cuál es tu intención para esta sesión?"
+                rows={4}
+                required
+              />
+
+              <p><strong>Método de pago:</strong></p>
+              <div className="pagos">
+                <a href="https://www.paypal.com/paypalme/tuusuario" target="_blank" rel="noopener noreferrer">
+                  <img src="/media/paypal-icon.png" alt="PayPal" style={{ height: '40px', marginRight: '15px' }} />
+                </a>
+                <a href="https://www.mercadopago.com.mx/tu-enlace" target="_blank" rel="noopener noreferrer">
+                  <img src="/media/mercadopago-icon.png" alt="Mercado Pago" style={{ height: '40px' }} />
+                </a>
+              </div>
+
+              <button type="submit" disabled style={{ marginTop: '15px' }}>
+                Confirmar (demo visual)
+              </button>
             </form>
+
           </div>
         </div>
       )}

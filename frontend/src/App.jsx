@@ -7,7 +7,7 @@ import Conexion from './pages/Conexion';
 import Coaching from './pages/Coaching';
 import Conferencias from './pages/Conferencias';
 //import Contacto from './pages/Contacto';
-//import Cursos from './pages/Cursos';
+import Cursos from './pages/Cursos';
 
 export default function App() {
   return (
@@ -20,6 +20,8 @@ export default function App() {
       <Route path="/conexion" element={<Conexion />} />
 
       <Route path="/coaching" element={<Coaching />} />
+
+      <Route path="/cursos" element={<Cursos />} />
 
         </Routes>
     </BrowserRouter>

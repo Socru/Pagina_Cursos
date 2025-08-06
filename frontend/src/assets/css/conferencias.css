@@ -22,6 +22,7 @@ html, body, #root {
 
 *, *::before, *::after {
   box-sizing: inherit;
+  
 }
 
 a {
@@ -113,6 +114,7 @@ header .container {
 /* SECCIONES */
 section {
   padding: 4rem 1rem;
+  background-color: white;
 }
 
 section h2, section h3 {
