@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import Conexion from './pages/Conexion';
 import Coaching from './pages/Coaching';
 import Conferencias from './pages/Conferencias';
-//import Contacto from './pages/Contacto';
+import Contacto from './pages/Contacto';
 import Cursos from './pages/Cursos';
 
 export default function App() {
@@ -22,6 +22,8 @@ export default function App() {
       <Route path="/coaching" element={<Coaching />} />
 
       <Route path="/cursos" element={<Cursos />} />
+
+      <Route path="/contacto" element={<Contacto />} />
 
         </Routes>
     </BrowserRouter>

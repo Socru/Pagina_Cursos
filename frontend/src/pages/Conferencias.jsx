@@ -1,4 +1,3 @@
-// src/pages/Conferencias.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/css/conferencias.css';
@@ -13,12 +12,12 @@ export default function Conferencias() {
     <>
       <header className="navbar">
         <div className="container">
-          <Link to="/" className="logo-contenedor">
-            <img src="/media/logo.jpg" alt="Logo Empresa" className="logo-img" />
+          <Link to="/" className="logo-contenedor" aria-label="Inicio">
+            <img src="/media/logo.jpg" alt="Logo de la empresa" className="logo-img" />
             <h1 className="nombre_empresa">Empresa</h1>
           </Link>
 
-          <button className="menu-toggle" aria-label="Menú" onClick={toggleMenu}>
+          <button className="menu-toggle" aria-label="Abrir menú" onClick={toggleMenu}>
             <i className="fas fa-bars"></i>
           </button>
 
@@ -35,7 +34,7 @@ export default function Conferencias() {
         </div>
       </header>
 
-      <main className="contenido conferencias" style={{ backgroundColor: '#fff' }}>
+      <main className="contenido conferencias">
         <section className="intro">
           <h2>Conferencias y Talleres</h2>
           <p>
@@ -94,23 +93,26 @@ export default function Conferencias() {
         <section className="galeria-eventos">
           <h3>Galería de Eventos</h3>
           <div className="galeria">
-            <img src="/media/evento1.jpg" aria-label="Evento 1" />
-              
-            <img src="/media/evento2.jpg" aria-label="Evento 2" />
-              
-            <img src="/media/evento3.jpg" aria-label="Evento 3" />
-              
+            <img src="/media/evento1.jpg" alt="Participantes en conferencia virtual" />
+            <img src="/media/evento2.jpg" alt="Taller presencial con educadores" />
+            <img src="/media/evento3.jpg" alt="Sesión de comunicación compasiva" />
           </div>
         </section>
 
         <section className="testimonios">
           <h3>Testimonios</h3>
-          <blockquote>
-            “Una experiencia transformadora, me ayudó a ver el duelo con otros ojos.” — Ana Martínez
-          </blockquote>
-          <blockquote>
-            “El taller de liderazgo emocional cambió mi forma de trabajar con mi equipo.” — Ricardo Gómez
-          </blockquote>
+          <article>
+            <blockquote>
+              “Una experiencia transformadora, me ayudó a ver el duelo con otros ojos.”
+            </blockquote>
+            <p className="autor">— Ana Martínez</p>
+          </article>
+          <article>
+            <blockquote>
+              “El taller de liderazgo emocional cambió mi forma de trabajar con mi equipo.”
+            </blockquote>
+            <p className="autor">— Ricardo Gómez</p>
+          </article>
         </section>
 
         <section className="faq">
