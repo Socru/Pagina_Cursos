@@ -117,7 +117,7 @@ export default function Contacto() {
       <footer>
         <p>&copy; 2025 Empresa. Todos los derechos reservados.</p>
         <p>
-          <a href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a> |{' '}
+          <a href="mailto:tuemail@ejemplo.com">tuemail@gmail.com</a> |{' '}
           <a href="https://wa.me/5210000000000">WhatsApp</a>
         </p>
       </footer>

@@ -151,7 +151,7 @@ export default function Conferencias() {
       <footer>
         <p>&copy; 2025 Empresa. Todos los derechos reservados.</p>
         <p>
-          <a href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a> |{' '}
+          <a href="mailto:tuemail@ejemplo.com">tuemail@gmail.com</a> |{' '}
           <a href="https://wa.me/">WhatsApp</a>
         </p>
       </footer>
