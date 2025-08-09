@@ -47,8 +47,8 @@ export default function Conexion() {
 
         <section className="programas-coaching">
           <div className="card">
-            <h3>Lectura de Oráculo</h3>
-            <p>Sesión guiada para recibir claridad espiritual. Duración: 45 min.</p>
+            <h3>Acompañamiento</h3>
+            <p>Sesión guiada para : 45 min.</p>
             <button className="boton" onClick={() => abrirModal('oraculo')}>Agendar</button>
           </div>
 
@@ -59,8 +59,8 @@ export default function Conexion() {
           </div>
 
           <div className="card">
-            <h3>Sanación Energética</h3>
-            <p>Equilibrio de chakras y limpieza emocional. Duración: 60 min.</p>
+            <h3>Apoyo emocional</h3>
+            <p>Sesión activa. Duración: 60 min.</p>
             <button className="boton" onClick={() => abrirModal('sanacion')}>Agendar</button>
           </div>
         </section>
